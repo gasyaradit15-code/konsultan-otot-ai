@@ -51,3 +51,5 @@ dev.db-wal
 *.db-journal
 *.db-shm
 *.db-wal
+
+.vercel
