@@ -14,13 +14,42 @@ export default function LandingPage() {
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-purple-600/10 blur-[150px]" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-fuchsia-600/10 blur-[120px]" />
 
-      <div className="flex-1 flex flex-col items-center justify-center px-4 z-10 text-center max-w-5xl mx-auto py-20">
+      {/* Header / Navbar */}
+      <header className="w-full max-w-6xl mx-auto px-6 py-4 flex items-center justify-between z-20 border-b border-zinc-900/60 bg-zinc-950/80 backdrop-blur-md sticky top-0">
+        <Link href="/" className="flex items-center gap-3">
+          <div className="bg-white p-1 rounded-lg border border-zinc-800 flex items-center justify-center">
+            <img src="/logo.jpg" alt="Andisa Gym" className="h-8 w-auto object-contain" />
+          </div>
+          <span className="font-sans font-black text-lg tracking-wider text-white uppercase hidden sm:inline-block">
+            ANDISA GYM
+          </span>
+        </Link>
+        <Link href="/generate">
+          <Button size="sm" className="bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs uppercase tracking-widest px-4 py-2 border border-purple-400/40">
+            Mulai Latihan
+          </Button>
+        </Link>
+      </header>
+
+      <div className="flex-1 flex flex-col items-center justify-center px-4 z-10 text-center max-w-5xl mx-auto py-12 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          className="flex flex-col items-center"
         >
-          <Badge variant="outline" className="mb-8 bg-zinc-900 border-zinc-800 text-purple-400 py-1.5 px-4 shadow-sm text-sm font-bold uppercase tracking-widest">
+          {/* Logo Sampul (Hero Cover Logo) */}
+          <div className="mb-8 relative">
+            <div className="bg-white p-4 rounded-2xl shadow-[0_0_35px_rgba(147,51,234,0.25)] max-w-[260px] sm:max-w-[320px] border border-purple-500/20">
+              <img 
+                src="/logo.jpg" 
+                alt="Andisa Gym Cover Logo" 
+                className="w-full h-auto object-contain rounded-lg"
+              />
+            </div>
+          </div>
+
+          <Badge variant="outline" className="mb-6 bg-zinc-900 border-zinc-800 text-purple-400 py-1.5 px-4 shadow-sm text-sm font-bold uppercase tracking-widest">
             <Flame className="w-4 h-4 mr-2 text-fuchsia-500" />
             Didukung oleh AI Gemini
           </Badge>
