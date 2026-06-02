@@ -17,10 +17,10 @@ export default function LandingPage() {
       {/* Header / Navbar */}
       <header className="w-full max-w-6xl mx-auto px-6 py-4 flex items-center justify-between z-20 border-b border-zinc-900/60 bg-zinc-950/80 backdrop-blur-md sticky top-0">
         <Link href="/" className="flex items-center gap-3">
-          <div className="bg-white p-1 rounded-lg border border-zinc-800 flex items-center justify-center">
-            <img src="/logo.jpg" alt="Andisa Gym" className="h-8 w-auto object-contain" />
+          <div className="flex items-center justify-center">
+            <img src="/logo.png" alt="Andisa Gym" className="h-12 w-auto object-contain" />
           </div>
-          <span className="font-sans font-black text-lg tracking-wider text-white uppercase hidden sm:inline-block">
+          <span className="font-sans font-black text-xl tracking-wider text-white uppercase hidden sm:inline-block">
             ANDISA GYM
           </span>
         </Link>
@@ -39,12 +39,12 @@ export default function LandingPage() {
           className="flex flex-col items-center"
         >
           {/* Logo Sampul (Hero Cover Logo) */}
-          <div className="mb-8 relative">
-            <div className="bg-white p-4 rounded-2xl shadow-[0_0_35px_rgba(147,51,234,0.25)] max-w-[260px] sm:max-w-[320px] border border-purple-500/20">
+          <div className="mb-10 relative">
+            <div className="max-w-[320px] sm:max-w-[440px] drop-shadow-[0_0_30px_rgba(168,85,247,0.4)]">
               <img 
-                src="/logo.jpg" 
+                src="/logo.png" 
                 alt="Andisa Gym Cover Logo" 
-                className="w-full h-auto object-contain rounded-lg"
+                className="w-full h-auto object-contain"
               />
             </div>
           </div>

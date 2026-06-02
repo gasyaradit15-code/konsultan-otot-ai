@@ -89,10 +89,8 @@ export default function GeneratePage() {
           <ArrowLeft className="w-4 h-4 mr-2" /> Kembali ke Base
         </Link>
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mb-8 text-center flex flex-col items-center">
-          <div className="mb-4">
-            <div className="bg-white p-2 rounded-xl border border-zinc-800 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
-              <img src="/logo.jpg" alt="Andisa Gym Logo" className="h-10 w-auto object-contain" />
-            </div>
+          <div className="mb-4 drop-shadow-[0_0_20px_rgba(168,85,247,0.35)]">
+            <img src="/logo.png" alt="Andisa Gym Logo" className="h-16 w-auto object-contain" />
           </div>
           <h1 className="font-sans text-4xl font-black text-white flex items-center justify-center gap-3 tracking-tighter uppercase">
             <Zap className="text-fuchsia-500 w-8 h-8" /> AI WORKOUT GENERATOR
