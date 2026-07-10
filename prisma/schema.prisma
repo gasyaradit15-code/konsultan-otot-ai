@@ -4,7 +4,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 // NextAuth Models
@@ -41,6 +43,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  password      String?   // Added for local authentication
   accounts      Account[]
   sessions      Session[]
   
@@ -70,6 +73,7 @@ model Profile {
   weight    Float?
   height    Float?
   goal      String?
+  gender    String?  // "male" or "female"
 }
 
 model WorkoutPlan {
@@ -91,6 +95,7 @@ model Exercise {
   sets          Int
   reps          String
   notes         String?
+  category      String?     // "chest", "back", "legs", "shoulders", "core"
 }
 
 model ChatHistory {
