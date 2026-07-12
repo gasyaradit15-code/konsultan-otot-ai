@@ -52,10 +52,14 @@ export async function POST(request: Request) {
       { message: "Registrasi berhasil!", userId: user.id },
       { status: 201 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error("Registration error:", error);
     return NextResponse.json(
-      { error: "Internal Server Error saat registrasi" },
+      { 
+        error: "Internal Server Error saat registrasi",
+        details: error?.message || "Unknown error",
+        stack: error?.stack || null
+      },
       { status: 500 }
     );
   }
