@@ -1,22 +1,28 @@
 import { NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import ws from 'ws';
+
+neonConfig.webSocketConstructor = ws;
 
 export async function GET() {
+  const dbUrl = process.env.DATABASE_URL;
+  const dbUrlPreview = dbUrl ? dbUrl.substring(0, 50) + '...' : 'NOT SET';
+  
   try {
-    const userCount = await prisma.user.count();
+    // Test connection directly without Prisma
+    const pool = new Pool({ connectionString: dbUrl });
+    const result = await pool.query('SELECT COUNT(*) FROM "User"');
+    await pool.end();
     return NextResponse.json({ 
       ok: true,
-      userCount,
-      dbUrl: process.env.DATABASE_URL ? "SET" : "NOT SET",
-      directUrl: process.env.DIRECT_URL ? "SET" : "NOT SET",
+      userCount: result.rows[0].count,
+      dbUrlPreview,
     });
   } catch (error: any) {
     return NextResponse.json({ 
       ok: false,
       error: error?.message || "Unknown error",
-      code: error?.code || null,
-      dbUrl: process.env.DATABASE_URL ? "SET" : "NOT SET",
-      directUrl: process.env.DIRECT_URL ? "SET" : "NOT SET",
+      dbUrlPreview,
     }, { status: 500 });
   }
 }
